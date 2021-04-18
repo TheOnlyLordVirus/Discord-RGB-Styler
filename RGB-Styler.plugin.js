@@ -75,8 +75,7 @@ class RGBStyler
 		// Obligatory Photosensitive Epilepsy warning. I made this for fun; not to hurt people.
 		BdApi.alert("WARNING:", "This plugin may potentially trigger seizures for people with photosensitive epilepsy.\nEsspecially background layers if you have everything enabled at once.\nUse with caution!");
 		
-		// Check if there's a sound setting saved
-		// For some reason BdApi interprets boolean false's as undefined, so we're storing the toggle as a string and converting it.
+		// Check if there's a setting file.
 		savedSettings = BdApi.loadData(this.getName(), "themeDark");
 
 		// Reset settings / create new file.
