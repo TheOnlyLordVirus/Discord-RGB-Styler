@@ -1,6 +1,6 @@
 /**
  * @name RGBStyler
- * @version 1.0.1
+ * @version 1.0.3
  * @description Adds a custom RGB style.
  * @authorLink https://github.com/TheOnlyLordVirus
  * @source https://github.com/TheOnlyLordVirus/Discord-RGB-Styler/blob/main/RGB-Styler.plugin.js
@@ -57,12 +57,12 @@ class RGBStyler
 	
 	getDescription() 
 	{
-		return 'Show your a cool gamer with this customisable RGB plugin for your discord user interface.';
+		return "Show everyone that you're a cool gamer with this customisable RGB plugin for your discord user interface.";
 	}
 	
 	getVersion() 
 	{
-		return "1.0.1";
+		return "1.0.3";
 	}
 	
 	getAuthor() 
@@ -72,6 +72,9 @@ class RGBStyler
 	
 	start() 
 	{
+		// Obligatory Photosensitive Epilepsy warning. I made this for fun; not to hurt people.
+		BdApi.alert("WARNING:", "This plugin may potentially trigger seizures for people with photosensitive epilepsy.\nEsspecially background layers if you have everything enabled at once.\nUse with caution!");
+		
 		// Check if there's a sound setting saved
 		// For some reason BdApi interprets boolean false's as undefined, so we're storing the toggle as a string and converting it.
 		savedSettings = BdApi.loadData(this.getName(), "themeDark");
@@ -161,9 +164,6 @@ class RGBStyler
 	// Create settings panel that allows users to toggle rainbow puke.
 	getSettingsPanel() 
 	{
-		// Obligatory Photosensitive Epilepsy warning. I made this for fun; not to hurt people.
-		Bdapi.alert("WARNING:", "This plugin may potentially trigger seizures for people with photosensitive epilepsy.\nEsspecially background layers if you have everything enabled at once.\nUse with caution!");
-		
 		// Create a div to append all of the check box settings to.
 		let el = document.createElement("div");
 		el.setAttribute("style", "color: white");
