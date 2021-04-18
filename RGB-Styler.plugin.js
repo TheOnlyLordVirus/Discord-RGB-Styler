@@ -1,12 +1,12 @@
 /**
  * @name RGBStyler
- * @version 1.0.0
+ * @version 1.0.1
  * @description Adds a custom RGB style.
  * @authorLink https://github.com/TheOnlyLordVirus
  * @source https://github.com/TheOnlyLordVirus/Discord-RGB-Styler/blob/main/RGB-Styler.plugin.js
  */
 var Loop = true;
-var Red, Green, Blue;
+//var Red, Green, Blue;
 var savedSettings = null;
 var currentSettings = 
 [
@@ -62,7 +62,7 @@ class RGBStyler
 	
 	getVersion() 
 	{
-		return "1.0.0";
+		return "1.0.1";
 	}
 	
 	getAuthor() 
@@ -92,10 +92,11 @@ class RGBStyler
 		}
 
 		Loop = true;
+		/*
 		Red = 255;
 		Green = 0;
 		Blue = 1;
-			
+		*/	
 		function myLoop()
 		{
 			if(Loop)
@@ -143,9 +144,6 @@ class RGBStyler
 				
 				BdApi.clearCSS("rainbowTheme");   
 				BdApi.injectCSS("rainbowTheme", cssString); 
-				
-				
-				//BdApi.injectCSS("rainbowTheme", ".theme-dark { --background-primary: " + randRGB() + "}"); 
 				setTimeout(myLoop, 200); 
 			}
 			
@@ -160,9 +158,13 @@ class RGBStyler
 		setTimeout(myLoop, 200);
 	}
 	
-	// Create settings panel that allows users to disable the alert sound
+	// Create settings panel that allows users to toggle rainbow puke.
 	getSettingsPanel() 
 	{
+		// Obligatory Photosensitive Epilepsy warning. I made this for fun; not to hurt people.
+		Bdapi.alert("WARNING:", "This plugin may potentially trigger seizures for people with photosensitive epilepsy.\nEsspecially background layers if you have everything enabled at once.\nUse with caution!");
+		
+		// Create a div to append all of the check box settings to.
 		let el = document.createElement("div");
 		el.setAttribute("style", "color: white");
 		let returnMe = el;
@@ -176,19 +178,21 @@ class RGBStyler
 		// Create an array of html elements that contains the data from the currentSettings object.
 		for(let i = 0, j = 0; i < currentSettings.length; i++, j += 3)
 		{
+			// Br
 			htmlCheckBoxes[j] = document.createElement("br");
 			
+			// Label
 			el = document.createElement("label");
 			el.setAttribute("for", "checkbox-" + i);
 			el.innerHTML = currentSettings[i].varName;
 			htmlCheckBoxes[j + 1] = el;
 			
+			// Check box.
 			el = document.createElement("input");
 			el.setAttribute("for", "checkbox-" + i);
 			el.setAttribute("type", "checkbox");
 			el.checked = currentSettings[i].rainbowBool;
 			el.setAttribute("settingIndex", i + "");
-			
 			el.addEventListener('change', 
 				(event) => 
 				{
