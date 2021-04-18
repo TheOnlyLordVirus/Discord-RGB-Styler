@@ -3,7 +3,7 @@
  * @version 1.0.0
  * @description Adds a custom RGB style.
  * @authorLink https://github.com/TheOnlyLordVirus
- * @source https://github.com/TheOnlyLordVirus/Better-Disco
+ * @source https://github.com/TheOnlyLordVirus/Discord-RGB-Styler/blob/main/RGB-Styler.plugin.js
  */
 var Loop = true;
 var Red, Green, Blue;
