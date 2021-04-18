@@ -8,7 +8,7 @@
 var Loop = true;
 var Red, Green, Blue;
 var savedSettings = null;
-var	currentSettings = 
+var currentSettings = 
 [
 	{ varName: "--header-primary", defaultCSS: "#fff", rainbowBool: false },
 	{ varName: "--header-secondary", defaultCSS: "#b9bbbe", rainbowBool: false },
